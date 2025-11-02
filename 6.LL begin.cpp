@@ -6,7 +6,7 @@ struct node {
     node *next;
 };
 
-// Create a new node
+// Function to create a new node
 node* create_node(int data) {
     node* newnode = new node();
     newnode->data = data;
@@ -25,11 +25,13 @@ node* insert_at_begin(node* head, int data) {
 // b. Delete from beginning
 node* delete_from_begin(node* head) {
     if (head == NULL) {
+        cout << "List is empty. Nothing to delete.\n\n";
         return head;
     }
     node* temp = head;
     head = head->next;
     delete temp;
+    cout << "Node deleted from beginning.\n\n";
     return head;
 }
 
@@ -40,6 +42,7 @@ void display(node* head) {
         return;
     }
     node* temp = head;
+    cout << "Linked List: ";
     while (temp != NULL) {
         cout << temp->data << " -> ";
         temp = temp->next;
@@ -63,11 +66,13 @@ int main() {
     node* head = NULL;
     int choice, data;
 
-        cout <<"1. Insert at Beginning\n";
-        cout <<"2. Delete from Beginning\n";
-        cout <<"3. Display Linked List\n";
-        cout <<"4. Count Number of Elements\n";
-        cout <<"Enter your choice: ";
+    do {
+        cout << "1. Insert at Beginning\n";
+        cout << "2. Delete from Beginning\n";
+        cout << "3. Display Linked List\n";
+        cout << "4. Count Number of Elements\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice: ";
         cin >> choice;
         cout << endl;
 
@@ -89,7 +94,13 @@ int main() {
             case 4:
                 cout << "Total nodes in Linked List: " << count_nodes(head) << "\n\n";
                 break;
+
+            case 5:
+                cout << "Exiting program...\n";
+                break;
         }
+
+    } while (choice != 5);
 
     return 0;
 }
