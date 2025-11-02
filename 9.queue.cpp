@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#define MAX 5  // fixed queue size
+#define MAX 10  // fixed queue size
 
 class CircularQueue {
 private:
@@ -113,3 +113,4 @@ int main() {
     }
     return 0;
 }
+
