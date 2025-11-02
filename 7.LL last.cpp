@@ -6,7 +6,7 @@ struct node {
     node *next;
 };
 
-// Create a new node
+// Function to create a new node
 node* create_node(int data) {
     node* newnode = new node();
     newnode->data = data;
@@ -86,10 +86,12 @@ int main() {
     node* head = NULL;
     int choice, data;
 
+    do {
         cout << "1. Insert at Last\n";
         cout << "2. Delete from Last\n";
         cout << "3. Display Linked List\n";
         cout << "4. Search Element\n";
+        cout << "5. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
         cout << endl;
@@ -114,6 +116,13 @@ int main() {
                 cin >> data;
                 search(head, data);
                 break;
+
+            case 5:
+                cout << "Exiting program...\n";
+                break;
         }
+
+    } while (choice != 5);
+
     return 0;
 }
